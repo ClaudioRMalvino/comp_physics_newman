@@ -1,5 +1,9 @@
 from math import * 
+"""
+Exercise 2.1: Another ball dropped from a tower 
 
+Textbook: Computational Physics by Mark Newman 
+"""
 def time_to_ground():
     """
     Function that calculates total time until object hits the ground when released 
