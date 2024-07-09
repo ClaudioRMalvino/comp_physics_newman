@@ -22,9 +22,9 @@ def main():
     """
 
     while True:
-        inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
+    inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
                         \nInput x coordinate: ")
-        if inputx == 'q':
+       if inputx == 'q':
             break
         inputy = input("\nInput y coordinate: ")
         if inputy == 'q':
