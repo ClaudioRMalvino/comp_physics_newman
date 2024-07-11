@@ -12,10 +12,13 @@ def altitude_of_sat(T):
     Function calculates the orbital height of a satellite when given an orbital period T.
     Returns the height in meters.
     """
-    G = 6.67E-11
-    M = 5.97E+24
-    R = 6.37E+6
+    G = 6.67E-11  # Newton's gravitational constant
+    M = 5.97E+24  # Mass of the Earth
+    R = 6.37E+6.  # Earth's radius
+
+    # Calculates satellite's orbital height 
     h = ((G * M * (T**2))/(4 * (pi**2)))**(1/3) - R
+
     print(f"Required altitude: {round(h, 0)} m")
 
 
@@ -28,6 +31,7 @@ def main():
     while True:
         T_input = input(
             "If desired orbital period is in minutes input 'min'\ntype 'q' to quit\nInput orbital period (in hours): ")
+
         if T_input == 'q':
             break
         if T_input == "min":
