@@ -10,7 +10,7 @@ def time_to_ground():
     from a height h. Disregarding air resistence. 
     """
     h = int(input("Input height in meters: "))
-    g = 9.81    # Earth gravitational constant
+    g = 9.81    # acceleration due to gravity
     t = sqrt((2 * h) / g)
     print(f"Total travel time: {round(t,2)} s")
 
