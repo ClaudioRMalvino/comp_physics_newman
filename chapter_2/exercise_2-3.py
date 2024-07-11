@@ -18,15 +18,15 @@ def cart_to_polar(x, y):
 if __name__ == "__main__":
 
     def main():
-    """
-    Function performs the process of taking the inputs for the Cartesian coordinates (x,y).
-    Then utilizes the cart_to_polar(x,y) function to calculate the provided inputs.
+        """
+        Function performs the process of taking the inputs for the Cartesian coordinates (x,y).
+        Then utilizes the cart_to_polar(x,y) function to calculate the provided inputs.
     """
 
     while True:
-    inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
+        inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
                         \nInput x coordinate: ")
-       if inputx == 'q':
+        if inputx == 'q':
             break
         inputy = input("\nInput y coordinate: ")
         if inputy == 'q':
