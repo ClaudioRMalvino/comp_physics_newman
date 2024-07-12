@@ -2,6 +2,8 @@ from math import atan, sqrt, pi
 
 """
 Exercise 2.3: Converting Cartesian coordinates to polar coordinates
+
+Textbook: Computational Physics by Mark Newman
 """
 
 
@@ -21,20 +23,20 @@ if __name__ == "__main__":
         """
         Function performs the process of taking the inputs for the Cartesian coordinates (x,y).
         Then utilizes the cart_to_polar(x,y) function to calculate the provided inputs.
-    """
+        """
 
-    while True:
-        inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
-                        \nInput x coordinate: ")
-        if inputx == 'q':
-            break
-        inputy = input("\nInput y coordinate: ")
-        if inputy == 'q':
-            break
+        while True:
+            inputx = input("Converting Cartesian to Polar\nInput 'q' to quit \
+                            \nInput x coordinate: ")
+            if inputx == 'q':
+                break
+            inputy = input("\nInput y coordinate: ")
+            if inputy == 'q':
+                break
 
-        x = float(inputx)
-        y = float(inputy)
-        cart_to_polar(x, y)
+            x = float(inputx)
+            y = float(inputy)
+            cart_to_polar(x, y)
 
 
     main()
