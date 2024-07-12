@@ -100,56 +100,52 @@ def orbital_eccent(l1, l2):
     """
     return (l2 - l1) / (l2 + l1)
 
-
-def main():
-    """
-    Function take the user input for v1 and l1 and then returns the completed calculations for the following:
-    - l2: Distance from the sun at aphelion
-    - v2: Velocity at aphelion
-    - T: Orbital period
-    - e: Orbital eccentricity
-    """
-    print("Orbital Properties Calculator")
-    print("Input 'q' to quit")
-
-    while True:
-
-        v1_input = input("Input perihelion velocity (v1): ")
-        if v1_input == 'q':
-            break
-
-        l1_input = input("Input perihelion distance (l1): ")
-        if l1_input == 'q':
-            break
-
-        try:
-            v1 = float(v1_input)
-            l1 = float(l1_input)
-
-            if v1 < 0 or l1 < 0:
-                raise ValueError("l1 & v1 can't have a negative value.\n \
-                Please try again.")
-
-            v2_val = v2(v1, l1)
-            l2_val = l2(v1, l1, v2_val)
-            a_val = a(l1, l2_val)
-            b_val = b(l1, l2_val)
-            T = orbital_period(l1=l1, v1=v1, a=a_val, b=b_val)
-            ecc = orbital_eccent(l1, l2_val)
-
-            print(f"\nVelocity at aphelion (v2) = {
-                np.format_float_scientific(v2_val, precision=4)} m/s")
-            print(f"Distance from Sun at aphelion (l2) = {
-                np.format_float_scientific(l2_val, precision=4)} m")
-            print(f"Orbital period (T) = {
-                np.format_float_scientific(T/3.154E+7, precision=4)} years")
-            print(f"Orbital eccentricity = {
-                np.format_float_scientific(ecc, precision=4)}")
-
-        except ValueError as e:
-            print(f"Error:{e}. Please try again.")
-
-
 if __name__ == "__main__":
-
+    def main():
+        """
+        Function take the user input for v1 and l1 and then returns the completed calculations for the following:
+        - l2: Distance from the sun at aphelion
+        - v2: Velocity at aphelion
+        - T: Orbital period
+        - e: Orbital eccentricity
+        """
+        print("Orbital Properties Calculator")
+        print("Input 'q' to quit")
+    
+        while True:
+    
+            v1_input = input("Input perihelion velocity (v1): ")
+            if v1_input == 'q':
+                break
+    
+            l1_input = input("Input perihelion distance (l1): ")
+            if l1_input == 'q':
+                break
+    
+            try:
+                v1 = float(v1_input)
+                l1 = float(l1_input)
+    
+                if v1 < 0 or l1 < 0:
+                    raise ValueError("l1 & v1 can't have a negative value.\n \
+                    Please try again.")
+    
+                v2_val = v2(v1, l1)
+                l2_val = l2(v1, l1, v2_val)
+                a_val = a(l1, l2_val)
+                b_val = b(l1, l2_val)
+                T = orbital_period(l1=l1, v1=v1, a=a_val, b=b_val)
+                ecc = orbital_eccent(l1, l2_val)
+    
+                print(f"\nVelocity at aphelion (v2) = {
+                    np.format_float_scientific(v2_val, precision=4)} m/s")
+                print(f"Distance from Sun at aphelion (l2) = {
+                    np.format_float_scientific(l2_val, precision=4)} m")
+                print(f"Orbital period (T) = {
+                    np.format_float_scientific(T/3.154E+7, precision=4)} years")
+                print(f"Orbital eccentricity = {
+                    np.format_float_scientific(ecc, precision=4)}")
+    
+            except ValueError as e:
+                print(f"Error:{e}. Please try again.")
     main()
