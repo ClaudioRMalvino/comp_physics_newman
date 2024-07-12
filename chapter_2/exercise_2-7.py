@@ -21,33 +21,31 @@ def catalan_num(max_val):
         n += 1
         c0 = cn
 
-
-def main():
-    """
-    Function takes user input to provide to the catalan_num() function
-    as input.
-    """
-
-    print("Catalan number generator")
-    print("Input 'q' to quit")
-
-    while True:
-
-        val_input = input("Input an integer > 0: ")
-        if val_input == 'q':
-            break
-
-        try:
-            val = int(val_input)
-            if val <= 0 or val == float:
-                raise ValueError("The value must be an integer and > 0.")
-
-            catalan_num(val)
-
-        except ValueError as e:
-            print(f"Error:{e}. Please try again.")
-
-
 if __name__ == "__main__":
+    
+    def main():
+        """
+        Function takes user input to provide to the catalan_num() function
+        as input.
+        """
+    
+        print("Catalan number generator")
+        print("Input 'q' to quit")
+    
+        while True:
+    
+            val_input = input("Input an integer > 0: ")
+            if val_input == 'q':
+                break
+    
+            try:
+                val = int(val_input)
+                if val <= 0 or val == float:
+                    raise ValueError("The value must be an integer and > 0.")
+    
+                catalan_num(val)
+    
+            except ValueError as e:
+                print(f"Error:{e}. Please try again.")
 
     main()

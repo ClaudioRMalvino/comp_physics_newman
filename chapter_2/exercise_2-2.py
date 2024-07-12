@@ -21,8 +21,9 @@ def altitude_of_sat(T):
 
     print(f"Required altitude: {round(h, 0)} m")
 
-
-def main():
+if __name__ == "__main__":
+    
+    def main():
     """
     Function holds the logical operations for selecting the desired metric of orbital period T.
     It then calls function altitude(T) to calculate the orbital height of the satellite utilizing
@@ -41,7 +42,4 @@ def main():
         else:
             T_sec = 3600 * float(T_input)
             altitude_of_sat(T_sec)
-
-
-if __name__ == "__main__":
     main()
