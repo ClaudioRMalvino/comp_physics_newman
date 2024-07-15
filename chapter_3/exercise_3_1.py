@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 Exercise 3.1: Plotting experimental data
 
 Textbook: Computational Physics by Mark Newman
+
+You can find the data sunspots.txt @ https://public.websites.umich.edu/~mejn/cp/
 """
 
 
