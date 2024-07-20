@@ -54,26 +54,35 @@ def per_diff(V1, V2):
 
 if __name__ == "__main__":
 
+    # Reads the data from the millikan.txt file
     data = np.loadtxt("millikan.txt", float)
     x = data[:, 0]
     y = data[:, 1]
 
+    # Calculates all of the necessary parameters
     Ex = Ex(x)
     Ey = Ey(y)
     Exx = Exx(x)
     Exy = Exy(x, y)
     m = m(Ex, Ey, Exx, Exy)
     c = c(Ex, Ey, Exx, Exy)
+
+    # Calculates the slope of the line that best fits our data points
     line = list(map(lambda x: m*x + c, x))
-    e = constants.e
+    e = constants.e  # Electron charge in Coulombs [C]
+
+    # Calculates Planck constant from V = \frac{h}{e}{\nu},
+    # where {\nu} is our frequency (x data) and V is our voltage (y data)
     exp_h = m * e
-    theory_h = constants.h
+    theory_h = constants.h  # Theoretical Planck constant
+
     print(f"slope = {m}\nintercept = {c}")
     print(f"Experimental Planck constant, h = {exp_h}")
     print(f"Theoretical Planck constant, h = {theory_h}")
     print(f"Percent difference from theoretical value and experimental =\
  {per_diff(exp_h, theory_h)}%")
 
+    # Plots a graph of data from millikan.txt and the line which best fits
     plt.scatter(x, y)
     plt.plot(x, line)
     plt.title("Millikan Oil-Drop Experiment")
