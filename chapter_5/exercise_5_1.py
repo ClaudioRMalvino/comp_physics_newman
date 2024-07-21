@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 Exercise 5.1: Utilizing the Trapezoidal Rule
 
 Textbook: Computational Physics by Mark Newman
+
+You can find the data velocities.txt @ https://public.websites.umich.edu/~mejn/cp/
 """
 
 def trap_int(t, vel, a, b):
