@@ -45,11 +45,11 @@ def c(Ex, Ey, Exx, Exy):
     return (Exx*Ey - Ex*Exy) / (Exx - Ex**2)
 
 
-def per_diff(V1, V2):
+def per_error(E, T):
     """
     Function calculates the percent difference between two values
     """
-    return round(((np.abs(V1 - V2)) / ((V1 + V2)/2)) * 100, 2)
+    return round(((np.abs(E - T)) / T) * 100, 2)
 
 
 if __name__ == "__main__":
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     print(f"Experimental Planck constant, h = {exp_h}")
     print(f"Theoretical Planck constant, h = {theory_h}")
     print(f"Percent difference from theoretical value and experimental =\
- {per_diff(exp_h, theory_h)}%")
+ {per_error(exp_h, theory_h)}%")
 
     # Plots a graph of data from millikan.txt and the line which best fits
     plt.scatter(x, y)
