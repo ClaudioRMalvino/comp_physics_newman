@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print(f"slope = {m}\nintercept = {c}")
     print(f"Experimental Planck constant, h = {exp_h}")
     print(f"Theoretical Planck constant, h = {theory_h}")
-    print(f"Percent difference from theoretical value and experimental =\
+    print(f"Percent error from theoretical value and experimental =\
  {per_error(exp_h, theory_h)}%")
 
     # Plots a graph of data from millikan.txt and the line which best fits
