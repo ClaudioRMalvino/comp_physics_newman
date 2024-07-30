@@ -19,7 +19,7 @@ def k1(E):
 
     returns float
     """
-    return sqrt(2*m*E / h_bar)
+    return sqrt(2 * m * E / h_bar)
 
 
 def k2(E, V):
@@ -31,7 +31,7 @@ def k2(E, V):
 
     returns float
     """
-    return sqrt(2*m*(E - V) / h_bar)
+    return sqrt(2 * m * (E - V) / h_bar)
 
 
 def T(k1, k2):
@@ -44,7 +44,7 @@ def T(k1, k2):
     return float: probability as a percentage of transmission
     """
 
-    return (4 * k1 * k2) / (k1 + k2)**2
+    return (4 * k1 * k2) / (k1 + k2) ** 2
 
 
 def R(k1, k2):
@@ -57,7 +57,7 @@ def R(k1, k2):
 
     return float: probability as a percentage of reflection
     """
-    return ((k1 - k2) / (k1 + k2))**2
+    return ((k1 - k2) / (k1 + k2)) ** 2
 
 
 def main():
@@ -68,11 +68,11 @@ def main():
     while True:
 
         E_input = input("Input energy of electron in eV: ")
-        if E_input == 'q':
+        if E_input == "q":
             break
 
         V_input = input("Input energy of potential step in eV: ")
-        if V_input == 'q':
+        if V_input == "q":
             break
 
         E = float(E_input)
@@ -82,14 +82,20 @@ def main():
             k = -k1(E)
             print(f"wavevector: {k}, Probability of Reflection: 100%")
         else:
-            print(f"\nGiven an electron of mass {m} eV, initial energy {
-                  E} eV and potential step {V} eV:\n")
-            print(f"Probability of reflection:{
-                  round(R(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector : {round(-k1(E), 3)}")
-            print(f"Probability of transmission:{
-                  round(T(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector: {round(k2(E, V), 3)}")
+            print(
+                f"\nGiven an electron of mass {m} eV, initial energy {
+                    E} eV and potential step {V} eV:\n"
+            )
+            print(
+                f"Probability of reflection:{
+                    round(R(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector : {round(-k1(E), 3)}"
+            )
+            print(
+                f"Probability of transmission:{
+                    round(T(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector: {round(k2(E, V), 3)}"
+            )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     main()
