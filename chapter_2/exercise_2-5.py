@@ -59,33 +59,37 @@ def R(k1, k2):
     """
     return ((k1 - k2) / (k1 + k2))**2
 
-if __name__ == '__main__':
-    def main():
-    
-        print("Calculating transmission and reflection probabilities.")
-        print("Input 'q' to quit")
-    
-        while True:
-    
-            E_input = input("Input energy of electron in eV: ")
-            if E_input == 'q':
-                break
-    
-            V_input = input("Input energy of potential step in eV: ")
-            if V_input == 'q':
-                break
-    
-            E = float(E_input)
-            V = float(V_input)
-    
-            if E <= V:
-                k = -k1(E)
-                print(f"wavevector: {k}, Probability of Reflection: 100%")
-    
-            print(f"\nGiven an electron of mass {m} eV, initial energy {E} eV and potential step {V} eV:\n")
+
+def main():
+
+    print("Calculating transmission and reflection probabilities.")
+    print("Input 'q' to quit")
+
+    while True:
+
+        E_input = input("Input energy of electron in eV: ")
+        if E_input == 'q':
+            break
+
+        V_input = input("Input energy of potential step in eV: ")
+        if V_input == 'q':
+            break
+
+        E = float(E_input)
+        V = float(V_input)
+
+        if E <= V:
+            k = -k1(E)
+            print(f"wavevector: {k}, Probability of Reflection: 100%")
+        else:
+            print(f"\nGiven an electron of mass {m} eV, initial energy {
+                  E} eV and potential step {V} eV:\n")
             print(f"Probability of reflection:{
                   round(R(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector : {round(-k1(E), 3)}")
             print(f"Probability of transmission:{
                   round(T(k1=k1(E), k2=k2(E, V))*100, 1)}% || wavevector: {round(k2(E, V), 3)}")
+
+
+if __name__ == '__main__':
 
     main()
