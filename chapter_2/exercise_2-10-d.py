@@ -34,13 +34,15 @@ def semi_empirical_mass_formula(Z, A, a_5):
 
 def semi_empirical_mass():
     """
-    Function provides the logical steps towards defining the value a_5 within the semi_empirical_mass_formula. Runs through the first 100 elements Z = [1,100] and 
-    calculates the approximate value for the highest binding energy per nucleon and 
-    the corresponding atomic mass for each element in Z. 
+    Function provides the logical steps towards defining the value a_5 within 
+    the semi_empirical_mass_formula. Runs through the first 100 elements 
+    Z = [1,100] and calculates the approximate value for the highest binding 
+    energy per nucleon and the corresponding atomic mass for each element in Z
 
     args:
         int Z: Atomic number
 
+    returns: 
     """
     Z = np.arange(1, 101)
     A_range = np.arange(1, 3*len(Z))
@@ -52,13 +54,13 @@ def semi_empirical_mass():
         for A in A_range:
 
             if (A % 2) != 0:
-                a_5 = 0
-            elif (A % 2) == 0 and (z % 2) == 0:
-                a_5 = 12.0
-            elif (A % 2) == 0 and (z % 2) != 0:
-                a_5 = -12.0
+                a5 = 0
+            elif (z % 2) == 0:
+                a5 = 12.0
+            elif (z % 2) != 0:
+                a5 = -12.0
 
-            values.append(semi_empirical_mass_formula(z, A, a_5=a_5))
+            values.append(semi_empirical_mass_formula(z, A, a_5=a5))
 
     # Returns the maximum binding energy per nucleon and the corresponding
     # atomic mass, returning the most stable nuclear configuration for Z

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 """
-Exercise 4.4: Calculating Integrals 
+Exercise 4.4: Calculating Integrals
 
 Textbook: Computational Physics by Mark Newman
 """

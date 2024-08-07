@@ -6,11 +6,10 @@ Exercise 4.2: Quadratic Equations
 Textbook: Computational Physics by Mark Newman
 """
 
-
 def quadratic_eq_witherror(a, b, c):
     """
     Function calculates the value of x utilizing the quadratic formula.
-    Should produce numerical errors due to accuracy and precision. 
+    Should produce numerical errors due to accuracy and precision.
     returns a tuple with lists for the values of x when calculated two different ways.
     quadratic_eq[0] provides a list of the solutions for the standard formula
     quadratic_eq[1] provides a list of the solutions for the alternative formula
@@ -83,7 +82,7 @@ def main():
     """
     Function asks user for input in order to calculate for a quadratic ax^2 + bx + c = 0.
     Prints out solutions for quadratic_eq_witherror and quadratic_eq to show the difference
-    in accuracy between the two methods. 
+    in accuracy between the two methods.
     """
 
     print("Quadratic Equation Calculator (ax^2 + bx + c = 0)")

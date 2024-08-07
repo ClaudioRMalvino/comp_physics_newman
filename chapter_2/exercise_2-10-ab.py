@@ -49,45 +49,45 @@ def semi_empirical_mass(Z, A):
     elif (A % 2) == 0 and (Z % 2) != 0:
         a_5 = -12.0
 
-    print(a_5)
-    return semi_empirical_mass_formula(Z, A, a_5=a_5)
+    return semi_empirical_mass_formula(Z, A, a_5)
+
+
+def main():
+    """
+    Function takes in the necessary inputs for calculating the nuclear binding
+    energy B within the semi_empirical_mass_formula function.
+    """
+    print("Nuclear Binding Energy Calculator (semi-empirical mass approximation)")
+    print("Input 'q' to quit")
+
+    while True:
+
+        Z_input = input("Input atomic number (Z): ")
+        if Z_input == 'q':
+            break
+
+        A_input = input("Input atomic mass (A): ")
+        if A_input == 'q':
+            break
+
+        try:
+            Z = int(Z_input)
+            A = float(A_input)
+
+            if A <= 0 or Z <= 0:
+                raise Exception("A and Z must be > 0")
+
+            B = semi_empirical_mass(Z, A)
+
+            print(f"Atomic number: {Z}")
+            print(f"Mass number: {A} u")
+            print(f"Approx nuclear binding energy: {B: .2f} Mev")
+            print(f"Binding energy per nucleon: {B/A: .2f} MeV")
+
+        except ValueError as e:
+            print(f"Error: {e}. Please try again.")
 
 
 if __name__ == "__main__":
-
-    def main():
-        """
-        Function takes in the necessary inputs for calculating the nuclear binding
-        energy B within the semi_empirical_mass_formula function.
-        """
-        print("Nuclear Binding Energy Calculator (semi-empirical mass approximation)")
-        print("Input 'q' to quit")
-
-        while True:
-
-            Z_input = input("Input atomic number (Z): ")
-            if Z_input == 'q':
-                break
-
-            A_input = input("Input atomic mass (A): ")
-            if A_input == 'q':
-                break
-
-            try:
-                Z = int(Z_input)
-                A = float(A_input)
-
-                if A <= 0 or Z <= 0:
-                    raise Exception("A and Z must be > 0")
-
-                B = semi_empirical_mass(Z, A)
-
-                print(f"Atomic number: {Z}")
-                print(f"Mass number: {A} u")
-                print(f"Approx nuclear binding energy: {B: .2f} Mev")
-                print(f"Binding energy per nucleon: {B/A: .2f} MeV")
-
-            except ValueError as e:
-                print(f"Error: {e}. Please try again.")
 
     main()

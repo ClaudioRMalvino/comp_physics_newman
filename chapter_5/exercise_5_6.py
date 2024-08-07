@@ -62,7 +62,7 @@ def print_results():
     print(f"Error of integration from epsilon: {error}")
     print(
         f"Error of integration from taking the difference when N = 20 : {
-          np.abs(4.4 - I2)}"
+            np.abs(4.4 - I2)}"
     )
 
 
