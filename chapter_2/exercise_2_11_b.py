@@ -44,9 +44,10 @@ def pascals_triangle(N):
     Pascal's triangle.
     """
     n = 1
-    while n < N+1:
+    print([1])
+    while n < N:
         triangle = []
-        for k in range(n+1):
+        for k in range(0, n+1):
             triangle.append(binomial(n=n, k=k))
         n += 1
         print(triangle)
