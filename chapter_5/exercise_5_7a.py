@@ -36,8 +36,7 @@ def adaptive_trapezoidal_rule(a, b):
     h = (b - a) / N  # Size of slices
     s = 0.5 * f(a) + 0.5 * f(b)  # Inital value
     epsilon = 1.0e-6  # The approximate error
-    step = 1
-    eps = 0
+    step = 1        # Number of steps
 
     # Loops calculates the integral utilizing trapezoidal method
     for k in range(1, N + 1):
@@ -62,7 +61,7 @@ def adaptive_trapezoidal_rule(a, b):
         I = 0.5 * I1 + (h * second_term)  # Value of the ith integral
         error = np.abs(I - I1) / 3  # Error estimation
 
-        print(f"Step: {step}\nN: {N}\nResult: {I}\nError: {eps}")
+        print(f"Step: {step}\nN: {N}\nResult: {I}\nError: {error}")
 
         if error <= epsilon:
             return I
