@@ -141,12 +141,21 @@ def x_uncertainty(N, n):
     return np.sqrt(s)
 
 
-if __name__ == "__main__":
+def plot_psi_nrange(n, x1, x2):
+    """
+    Function plots a graph of Psi(x) for various quantum numbers, [0, n] from x: [x1, x2]
 
-    # Part a)
+    Args:
+        float x1: The lower bound of x along the x-axis
+        float x2: The upper bound of x along the x-axis
+        int n: Max value of energy levels 
 
-    n_max = 3                       # Max number of levels
-    x = np.linspace(-4, 4, 50)      # The domain along x
+    Returns:
+         Plot of Psi_n(x) from domain [x1. x2] with various curves from [0, n]
+    """
+
+    n_max = n                       # Max number of levels
+    x = np.linspace(x1, x2, 100)      # The domain along x
     results = []
 
     for n in range(n_max + 1):
@@ -159,22 +168,47 @@ if __name__ == "__main__":
     plt.title(r"$\psi_{n}(x)$")
     plt.xlabel(r"$x$")
     plt.ylabel(r"$\psi_{n}(x)$")
-    plt.legend(labels=[
-               "n = 0", "n = 1", "n = 2", "n = 3"])
+    plt.legend(labels=[f"n = {n}" for n in range(n + 1)])
     plt.show()
 
-    # Part b)
 
-    n = 30                          # Quantum number
-    x = np.linspace(-10, 10, 100)   # The domain along x
+def plot_psi_n(n, x1, x2):
+    """
+    Function plots a graph of Psi(x) for various quantum number n from x: [x1, x2]
+
+    Args:
+        float x1: The lower bound of x along the x-axis
+        float x2: The upper bound of x along the x-axis
+        int n: The quantum number n
+
+    Returns:
+         Plot of Psi_n(x) from domain [x1. x2] for n    """
+
+    x = np.linspace(x1, x2, 100)
     results = [psi(n=n, x=x) for x in x]
 
     # Plots the graph of Psi(x) for n = 30
     plt.plot(x, results)
-    plt.title(r"$\psi_{30}(x)$")
+    plt.title(r"$\psi_{n}(x)$")
     plt.xlabel(r"$x$")
-    plt.ylabel(r"$\psi_{30}(x)$")
+    plt.ylabel(r"$\psi_{n}(x)$")
     plt.show()
+
+
+if __name__ == "__main__":
+
+    # Part a)
+
+    n = 3
+    x1, x2 = -4, 4
+
+    plot_psi_nrange(n=n, x1=x1, x2=x2)
+
+    # Part b)
+
+    n = 30
+    x1, x2 = -10, 10
+    plot_psi_n(n=n, x1=x1, x2=x2)
 
     # Part c)
 
