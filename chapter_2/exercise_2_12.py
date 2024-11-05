@@ -36,30 +36,30 @@ def prime_nums(n):
     print(primes)
 
 
+def main():
+    """
+    Function prompts the user for an input to pass into prime_nums(n) function.
+    """
+
+    print("Prime Number Sieve")
+    print("Input 'q' to quit")
+    while True:
+
+        n_input = input("Input an integer to search for primes from [3,n]: ")
+        if n_input == "q":
+            break
+
+        try:
+            n = int(n_input)
+            if n < 0:
+                raise ValueError("n must be be a positive value")
+
+            prime_nums(n)
+
+        except Exception as e:
+            print(f"Error: {e}. Please try again.")
+
+
 if __name__ == "__main__":
-
-    def main():
-        """
-        Function prompts the user for an input to pass into prime_nums(n) function.
-        """
-
-        print("Prime Number Sieve")
-        print("Input 'q' to quit")
-        while True:
-
-            n_input = input(
-                "Input an integer to search for primes from [3,n]: ")
-            if n_input == 'q':
-                break
-
-            try:
-                n = int(n_input)
-                if n < 0:
-                    raise ValueError("n must be be a positive value")
-
-                prime_nums(n)
-
-            except Exception as e:
-                print(f"Error: {e}. Please try again.")
 
     main()
