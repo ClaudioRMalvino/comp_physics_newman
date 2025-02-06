@@ -53,32 +53,32 @@ def pascals_triangle(N):
         print(triangle)
 
 
+def main():
+    """
+    Function asks for the number of lines from Pascal's triangle 
+    the user desires.
+    """
+    print("Pascal's Triangle Generator")
+    print("Input 'q' to quit")
+
+    while True:
+
+        N_input = input(
+            "Input number of lines of Pascal's triangle to be generated: ")
+        if N_input == 'q':
+            break
+
+        try:
+            N = int(N_input)
+
+            if N <= 0:
+                raise ValueError("The number of lines must be > 0.")
+
+            pascals_triangle(N)
+
+        except ValueError as e:
+            print(f"Error: {e}. Please try again.")
+
 if __name__ == "__main__":
-
-    def main():
-        """
-        Function asks for the number of lines from Pascal's triangle 
-        the user desires.
-        """
-        print("Pascal's Triangle Generator")
-        print("Input 'q' to quit")
-
-        while True:
-
-            N_input = input(
-                "Input number of lines of Pascal's triangle to be generated: ")
-            if N_input == 'q':
-                break
-
-            try:
-                N = int(N_input)
-
-                if N <= 0:
-                    raise ValueError("The number of lines must be > 0.")
-
-                pascals_triangle(N)
-
-            except ValueError as e:
-                print(f"Error: {e}. Please try again.")
 
     main()
