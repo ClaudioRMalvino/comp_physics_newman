@@ -31,50 +31,50 @@ def ship_ref_frame(x, v):
     return earth_ref_frame(x, v) / gamma
 
 
-if __name__ == "__main__":
+def main():
+    """
+    Functions asks inputs for x (distance in light years) and v (a number (0,1]) to
+    to calculate the time it takes for a spaceship to travel a distance x at velocity v*c
+    for Earth reference frame and passenger reference frame.
+    """
 
-    def main():
-        """
-        Functions asks inputs for x (distance in light years) and v (a number (0,1]) to
-        to calculate the time it takes for a spaceship to travel a distance x at velocity v*c
-        for Earth reference frame and passenger reference frame.
-        """
+    while True:
+        print(
+            "\nCalculating travel time from Earth reference frame and passenger reference frame."
+        )
+        print("Input 'q' to quit.")
 
-        while True:
+        x_input = input("Input distance in lightyears: ")
+        if x_input == "q":
+            break
+
+        v_input = input(
+            "Input velocity as a fraction of speed of light (number from (0,1]):"
+        )
+        if v_input == "q":
+            break
+        try:
+            x = float(x_input)
+            v = float(v_input)
+
+            if v <= 0 or v >= 1:
+                raise ValueError("Velocity must be between (0,1]")
+
+            earth_frame = earth_ref_frame(x, v) / 31556952
+            ship_frame = ship_ref_frame(x, v) / 31556952
+
             print(
-                "\nCalculating travel time from Earth reference frame and passenger reference frame."
+                f"\nTravel time from Earth reference frame: {
+                  round(earth_frame, 2)}"
             )
-            print("Input 'q' to quit.")
-
-            x_input = input("Input distance in lightyears: ")
-            if x_input == "q":
-                break
-
-            v_input = input(
-                "Input velocity as a fraction of speed of light (number from (0,1]):"
+            print(
+                f"Travel time from ship reference frame: {
+                  round(ship_frame, 2)}\n"
             )
-            if v_input == "q":
-                break
-            try:
-                x = float(x_input)
-                v = float(v_input)
 
-                if v <= 0 or v >= 1:
-                    raise ValueError("Velocity must be between (0,1]")
-
-                earth_frame = earth_ref_frame(x, v) / 31556952
-                ship_frame = ship_ref_frame(x, v) / 31556952
-
-                print(
-                    f"\nTravel time from Earth reference frame: {
-                      round(earth_frame, 2)}"
-                )
-                print(
-                    f"Travel time from ship reference frame: {
-                      round(ship_frame, 2)}\n"
-                )
-
-            except ValueError as e:
-                print(f"Error:{e}. Please try again.")
-
+        except ValueError as e:
+            print(f"Error:{e}. Please try again.")
+            
+if __name__ == "__main__":
+    
     main()
