@@ -14,15 +14,15 @@ def running_avg(r, y_k):
     """
     Function calculates the running average of the provided data.
     """
-    K = np.arange(5, len(y_k)-5)
-    M = np.arange(-r, r+1)
-    mu = (1 / (2 * r + 1))
+    K = np.arange(5, len(y_k) - 5)
+    M = np.arange(-r, r + 1)
+    mu = 1 / (2 * r + 1)
     Y_k = []
     for k in K:
         y_sum = 0
         for m in M:
             y_sum += y_k[k + m]
-        Y_k.append(mu*y_sum)
+        Y_k.append(mu * y_sum)
     return np.asarray(Y_k, dtype=float)
 
 

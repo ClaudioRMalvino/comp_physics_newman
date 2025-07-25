@@ -6,6 +6,7 @@ Exercise 4.2: Quadratic Equations
 Textbook: Computational Physics by Mark Newman
 """
 
+
 def quadratic_eq_witherror(a, b, c):
     """
     Function calculates the value of x utilizing the quadratic formula.
@@ -16,19 +17,19 @@ def quadratic_eq_witherror(a, b, c):
     """
 
     # Calculate the discriminant
-    discriminant = b**2 - 4*a*c
+    discriminant = b**2 - 4 * a * c
 
     # Check if the equation has real roots
     if discriminant < 0:
-        return None  # No real roots
+        raise ValueError("Discriminant must be greater than or equal to zero")
 
     # Solutions for the standard quadratic formula
-    x00 = (-b + np.sqrt(discriminant)) / 2*a
-    x01 = (-b - np.sqrt(discriminant)) / 2*a
+    x00 = (-b + np.sqrt(discriminant)) / (2 * a)
+    x01 = (-b - np.sqrt(discriminant)) / (2 * a)
 
     # Solutions for the alternative formula
-    x10 = 2*c / (-b - np.sqrt(discriminant))
-    x11 = 2*c / (-b + np.sqrt(discriminant))
+    x10 = (2 * c) / (-b - np.sqrt(discriminant))
+    x11 = (2 * c) / (-b + np.sqrt(discriminant))
 
     return ([x00, x01], [x10, x11])
 
@@ -41,23 +42,25 @@ def quadratic_eq(a, b, c):
     Returns a tuple containing the two roots.
     """
     # Calculate the discriminant
-    discriminant = b**2 - 4*a*c
+    discriminant = b**2 - 4 * a * c
 
     # Check if the equation has real roots
     if discriminant < 0:
-        return None  # No real roots
+        raise ValueError(
+            "Discriminant must be greater than or equal to zero"
+        )  # No real roots
 
     # Choose the appropriate formula based on the sign of b
     if b >= 0:
         # Use the standard formula for the first root
-        x1 = (-b - np.sqrt(discriminant)) / (2*a)
+        x1 = (-b - np.sqrt(discriminant)) / (2 * a)
         # Use the alternative formula for the second root
-        x2 = (2*c) / (-b - np.sqrt(discriminant))
+        x2 = (2 * c) / (-b - np.sqrt(discriminant))
     else:
         # Use the alternative formula for the first root
-        x1 = (2*c) / (-b + np.sqrt(discriminant))
+        x1 = (2 * c) / (-b + np.sqrt(discriminant))
         # Use the standard formula for the second root
-        x2 = (-b + np.sqrt(discriminant)) / (2*a)
+        x2 = (-b + np.sqrt(discriminant)) / (2 * a)
 
     return (x1, x2)
 
@@ -68,10 +71,14 @@ def print_solutions(sol_witherror, solution):
     """
     print("Solutions with errors")
     print("-----------------------")
-    print(f"Standard Formula: x = [{sol_witherror[0][0]: .10e}, {
-          sol_witherror[0][1]: .10e}]")
-    print(f"Alternative Formula: x = [{sol_witherror[1][0]: .10e}, {
-          sol_witherror[1][1]: .10e}]")
+    print(
+        f"Standard Formula: x = [{sol_witherror[0][0]: .10e}, {
+          sol_witherror[0][1]: .10e}]"
+    )
+    print(
+        f"Alternative Formula: x = [{sol_witherror[1][0]: .10e}, {
+          sol_witherror[1][1]: .10e}]"
+    )
     print("-----------------------")
     print("Solutions without errors")
     print("-----------------------")
@@ -90,13 +97,13 @@ def main():
     while True:
 
         a_input = input("Input a: ")
-        if a_input == 'q':
+        if a_input == "q":
             break
         b_input = input("Input b: ")
-        if b_input == 'q':
+        if b_input == "q":
             break
         c_input = input("Input c: ")
-        if c_input == 'q':
+        if c_input == "q":
             break
 
         a = float(a_input)

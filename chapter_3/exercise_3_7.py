@@ -1,7 +1,7 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 from numba import jit
+
 """
 Exercise 3.7: The Mandelbrot Set
 
@@ -19,15 +19,15 @@ def mandelbrot(ext, max_steps, Nx, Ny):
     data = np.ones((Nx, Ny)) * max_steps
     for i in np.arange(Nx):
         for j in np.arange(Ny):
-            x = ext[0] + (ext[1] - ext[0])*i / (Nx - 1.)
-            y = ext[2] + (ext[3] - ext[2])*j / (Ny - 1.)
-            z0 = x + y*1j
+            x = ext[0] + (ext[1] - ext[0]) * i / (Nx - 1.0)
+            y = ext[2] + (ext[3] - ext[2]) * j / (Ny - 1.0)
+            z0 = x + y * 1j
             z = 0j
             for n in np.arange(max_steps):
-                if np.abs(z) > 2.:
+                if np.abs(z) > 2.0:
                     data[j, i] = n
                     break
-                z = z*z + z0
+                z = z * z + z0
     return data
 
 
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     data = mandelbrot(np.array(ext), max_steps, Nx, Ny)
 
     fig, ax = plt.subplots(1, 1)
-    ax.imshow(data, extent=ext, origin='lower')
-    ax.callbacks.connect('xlim_changed', ax_update)
-    ax.callbacks.connect('ylim_changed', ax_update)
+    ax.imshow(data, extent=ext, origin="lower")
+    ax.callbacks.connect("xlim_changed", ax_update)
+    ax.callbacks.connect("ylim_changed", ax_update)
     plt.show()

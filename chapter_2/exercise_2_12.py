@@ -1,5 +1,3 @@
-import numpy as np
-
 """
 Exercise 2.12: Prime numbers
 

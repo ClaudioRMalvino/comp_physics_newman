@@ -11,7 +11,7 @@ Part A) Catalan Numbers utilizing recursion
 
 def catalan_recursion(nth):
     """
-    Function takes an integer and calculates the nth Catalan number C_n 
+    Function takes an integer and calculates the nth Catalan number C_n
     utilizing recursion.
 
     arg:
@@ -23,8 +23,8 @@ def catalan_recursion(nth):
     if nth == 0:
         return 1
     else:
-        mu = (4*nth - 2) / (nth + 1)
-        return (mu * catalan_recursion(nth=nth-1))
+        mu = (4 * nth - 2) / (nth + 1)
+        return mu * catalan_recursion(nth=nth - 1)
 
 
 """
@@ -34,7 +34,7 @@ Part B) Greatest common divisor utilizing recurison
 
 def g(m, n):
     """
-    Function calculates the greatest common divisor of two nonnegative 
+    Function calculates the greatest common divisor of two nonnegative
     integers m and n.
 
     args:

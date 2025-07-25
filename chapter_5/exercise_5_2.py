@@ -8,27 +8,29 @@ Exercise 5.2: Utilizing the Extended Simpson Rule
 Textbook: Computational Physics by Mark Newman
 """
 
+
 @jit(nopython=True)
 def ext_simspon_rule(a, b, N):
     def f(x):
         """
         Function calculates x^4 - 2x + 1
         """
-        return x**4 - 2*x + 1
+        return x**4 - 2 * x + 1
 
-    h = (b - a)/N
-    c = h/3.0   # caluclated the constant to reduce computation
+    h = (b - a) / N
+    c = h / 3.0  # caluclated the constant to reduce computation
     I = c * (f(a) + f(b))
-    odds = 0.
-    evens = 0.
+    odds = 0.0
+    evens = 0.0
 
-    for k in range(1,N,2):
+    for k in range(1, N, 2):
         odds += f(a + k * h)
     for k in range(2, N, 2):
         evens += f(a + k * h)
-    I += c * (4*odds + 2*evens)
+    I += c * (4 * odds + 2 * evens)
 
     return I
+
 
 def per_error(E, T):
     """
@@ -36,10 +38,11 @@ def per_error(E, T):
     """
     return ((np.abs(E - T)) / T) * 100
 
+
 if __name__ == "__main__":
 
-    a = 0.
-    b = 2.
+    a = 0.0
+    b = 2.0
     N = [10, 100, 1000]
 
     print(f"Integrating x^4 -2x + 1 from [{a}, {b}]\n")

@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 """
 Exercise 3.3: Plotting scenning tunneling microscope data for silicon
 
